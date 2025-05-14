@@ -14,6 +14,14 @@
  * 해당 패키지 하위에 존재하는 여러 기능을 활용하는 것이 가능하다.
  */
 import Example.Example_01.CE01Example_01;
+import Example.Example_02.CE01Example_02;
+import Example.Example_03.CE01Example_03;
+
+import Practice.Practice_01.CP01Practice_01;
+import Practice.Practice_02.CP01Practice_02;
+
+import Training.Training_01.CT01Training_01;
+import Training.Training_02.CT01Training_02;
 
 /*
  * 클래스 (Class) 란?
@@ -60,10 +68,10 @@ public class Main {
 		CE01Example_01.start(args);
 //		CE01Example_02.start(args);
 //		CE01Example_03.start(args);
-		
+
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);
-		
+
 //		CT01Training_01.start(args);
 //		CT01Training_02.start(args);
 	}
