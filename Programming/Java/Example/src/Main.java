@@ -16,6 +16,8 @@
 import Example.Example_01.CE01Example_01;
 import Example.Example_02.CE01Example_02;
 import Example.Example_03.CE01Example_03;
+import Example.Example_04.CE01Example_04;
+import Example.Example_05.CE01Example_05;
 
 import Practice.Practice_01.CP01Practice_01;
 import Practice.Practice_02.CP01Practice_02;
@@ -65,9 +67,11 @@ public class Main {
 	 */
 	/** 메인 메서드 */
 	public static void main(String[] args) {
-		CE01Example_01.start(args);
+//		CE01Example_01.start(args);
 //		CE01Example_02.start(args);
 //		CE01Example_03.start(args);
+		CE01Example_04.start(args);
+//		CE01Example_05.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);

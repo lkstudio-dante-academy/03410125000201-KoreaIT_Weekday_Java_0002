@@ -46,12 +46,28 @@ package Example.Example_03;
  * 위의 과정을 응용하면 10 진수로 표현 된 숫자를 다른 진수로 변환이 가능하다는 것을 의미한다.)
  */
 
+import java.util.Scanner;
+
 /**
  * Example 3 (데이터 표현 방법)
  */
 public class CE01Example_03 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Scanner oScanner = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		
+		/*
+		 * nextInt 메서드란?
+		 * - 콘솔 창으로부터 정수를 읽어들이는 역할을 수행하는 메서드를 의미한다. (+ 즉,
+		 * nextInt 메서드를 활용하면 사용자로부터 숫자 데이터를 입력 받아서 프로그램에 활용하는 것이
+		 * 가능하다.)
+		 */
+		int nVal = oScanner.nextInt();
+		
+		System.out.println("\n=====> 결과 <=====");
+		System.out.printf("2 진수 : %s\n", Integer.toString(nVal, 2));
+		System.out.printf("8 진수 : %s\n", Integer.toString(nVal, 8));
+		System.out.printf("16 진수 : %s\n", Integer.toString(nVal, 16));
 	}
 }
