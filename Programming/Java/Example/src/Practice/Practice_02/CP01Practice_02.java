@@ -1,5 +1,9 @@
 package Practice.Practice_02;
 
+/*
+ * Java 과제 2
+ */
+
 /**
  * Practice 2
  */

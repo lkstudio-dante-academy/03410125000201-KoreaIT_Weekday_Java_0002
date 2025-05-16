@@ -18,6 +18,9 @@ import Example.Example_02.CE01Example_02;
 import Example.Example_03.CE01Example_03;
 import Example.Example_04.CE01Example_04;
 import Example.Example_05.CE01Example_05;
+import Example.Example_06.CE01Example_06;
+import Example.Example_07.CE01Example_07;
+import Example.Example_08.CE01Example_08;
 
 import Practice.Practice_01.CP01Practice_01;
 import Practice.Practice_02.CP01Practice_02;
@@ -36,7 +39,7 @@ import Training.Training_02.CT01Training_02;
  *
  * 메서드 (Method) 란?
  * - 특정 역할을 수행하는 하나의 기능을 의미한다. (+ 즉, 메서드를 호출하면 해당 메서드 내부에 존재하는 명령문이
- * 실행된다는 것을 알 수 있다.)
+ * 실행 된다는 것을 알 수 있다.)
  *
  * Java 명령문은 메서드 내부에 작성하는 것이 가능하며 이러한 명령문은 메서드가 호출됨으로서 실행하는 것이
  * 가능하다. (+ 즉, 메서드가 호출되지 않으면 메서드 내부에 존재하는 명령문이 동작하지 않는다는 것을 의미한다.)
@@ -72,6 +75,9 @@ public class Main {
 //		CE01Example_03.start(args);
 		CE01Example_04.start(args);
 //		CE01Example_05.start(args);
+//		CE01Example_06.start(args);
+//		CE01Example_07.start(args);
+//		CE01Example_08.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);

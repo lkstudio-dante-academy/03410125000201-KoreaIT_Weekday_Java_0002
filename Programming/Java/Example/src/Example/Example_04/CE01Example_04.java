@@ -84,6 +84,13 @@ public class CE01Example_04 {
 		/*
 		 * 아래와 같이 관계 연산자의 결과는 참 or 거짓을 표현하는 boolean 데이터가 반환되기 때문에
 		 * 해당 데이터를 출력하기 위해서 %s 서식 문자가 사용 된 것을 알 수 있다.
+		 *
+		 * 컴퓨터가 참 or 거짓을 표현하는 방법
+		 * - 컴퓨터는 0 을 거짓으로 인식하고 0 을 제외한 모든 수를 참으로 인식한다. (+ 즉,
+		 * 컴퓨터에게는 boolean 과 같은 논리 자료형의 개념이 존재하지 않는다는 것을 의미한다.)
+		 *
+		 * 단, Java 는 참 or 거짓을 표현하는 boolean 자료형이 존재하기 때문에 Java 에서
+		 * 숫자 0 과 거짓 (false) 은 서로 다른 데이터로 인식된다. (+ 즉, 호환 되지 않는다는 것을 의미한다.)
 		 */
 		System.out.println("\n=====> 관계 연산자 <=====");
 		System.out.printf("%d < %d = %s\n", nValA, nValB, nValA < nValB);
@@ -92,5 +99,64 @@ public class CE01Example_04 {
 		System.out.printf("%d >= %d = %s\n", nValA, nValB, nValA >= nValB);
 		System.out.printf("%d == %d = %s\n", nValA, nValB, nValA == nValB);
 		System.out.printf("%d != %d = %s\n", nValA, nValB, nValA != nValB);
+		
+		/*
+		 * 아래와 같이 논리 연산자의 피연산자는 참 or 거짓을 표현하는 boolean 데이터만 위치하는 것이
+		 * 가능하다. (+ 즉, boolean 이외의 자료형 데이터를 명시하면 컴파일 에러가 발생한다는 것을
+		 * 의미한다.)
+		 */
+		System.out.println("\n=====> 논리 연산자 <=====");
+		System.out.printf("%d && %d = %s\n", nValA, nValB, nValA != 0 && nValB != 0);
+		System.out.printf("%d || %d = %s\n", nValA, nValB, nValA != 0 || nValB != 0);
+		System.out.printf("!%d = %s\n", nValA, !(nValA != 0));
+		
+		/*
+		 * 증감 연산자는 할당 연산자를 제외하고 변수가 지니고 있는 데이터를 변경 할 수 있는 유일한 연산자이며
+		 * 증감 연산자를 명시하는 위치에 따라 전위 증감 연산자와 후위 증감 연산자로 구분된다.
+		 *
+		 * 전위 증감 연산자 vs 후위 증감 연산자
+		 * - 전위 증감 연산자는 변수가 지니고 있는 데이터를 증감 후 해당 데이터를 연산에 활용하는
+		 * 특징이존재한다. (+ 즉, 선 증감 후 연산 이라는 것을 알 수 있다.)
+		 *
+		 * 반면 후위 증감 연산자는 변수가 지니고 있는 데이터를 연산에 활용 후 변수가 지니고 있는 데이터를
+		 * 증감 시키는 차이점이 존재한다. (+ 즉, 선 연산 후 증감 이라는 것을 알 수 있다.)
+		 *
+		 * Ex)
+		 * int nValA = 0;
+		 * int nValB = 0;
+		 *
+		 * int nResultA = ++nValA;			<- 1 할당
+		 * int nResultB = nValB++;			<- 0 할당
+		 *
+		 * 위와 같이 nResultA 변수에는 1 이 할당되는 반면 nResultB 에는 0 이 할당 된다는 것을 알 수 있다.
+		 */
+		System.out.println("\n=====> 증감 연산자 <=====");
+		System.out.printf("++%d, --%d = %d, %d\n", nValA, nValB, ++nValA, --nValB);
+		System.out.printf("%d++, %d-- = %d, %d\n", nValA, nValB, nValA++, nValB--);
+		
+		System.out.println("\n=====> 증감 연산자 - 후위 증감 후 <=====");
+		System.out.printf("%d, %d\n", nValA, nValB);
+		
+		int nResult = (nValA >= nValB) ? nValA : nValB;
+		
+		System.out.println("\n=====> 조건 연산자 <=====");
+		System.out.printf("(%d >= %d) ? %d : %d = %d\n", nValA, nValB, nValA, nValB, nResult);
+		
+		/*
+		 * Integer.toString 메서드란?
+		 * - 10 진수로 표현 된 숫자 데이터를 다른 진수 데이터로 변환하는 역할을 수행하는 메서드를
+		 * 의미한다. (+ 즉, Integer.toString 메서드를 활용하면 간단하게 10 진수 데이터를
+		 * 다른 진수 데이터로 변환하는 것이 가능하다.)
+		 */
+		String oStr_ValA = Integer.toString(nValA, 2);
+		String oStr_ValB = Integer.toString(nValB, 2);
+		
+		System.out.println("\n=====> 비트 연산자 <=====");
+		System.out.printf("%s & %s = %s\n", oStr_ValA, oStr_ValB, Integer.toString(nValA & nValB, 2));
+		System.out.printf("%s | %s = %s\n", oStr_ValA, oStr_ValB, Integer.toString(nValA | nValB, 2));
+		System.out.printf("%s ^ %s = %s\n", oStr_ValA, oStr_ValB, Integer.toString(nValA ^ nValB, 2));
+		System.out.printf("%s << 1 = %s\n", oStr_ValA, Integer.toString(nValA << 1, 2));
+		System.out.printf("%s >> 1 = %s\n", oStr_ValB, Integer.toString(nValB >> 2, 2));
+		System.out.printf("~%s = %s\n", oStr_ValA, Integer.toString(~nValA, 2));
 	}
 }
