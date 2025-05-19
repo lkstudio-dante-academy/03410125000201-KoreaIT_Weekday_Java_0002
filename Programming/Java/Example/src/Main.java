@@ -21,17 +21,27 @@ import Example.Example_05.CE01Example_05;
 import Example.Example_06.CE01Example_06;
 import Example.Example_07.CE01Example_07;
 import Example.Example_08.CE01Example_08;
+import Example.Example_09.CE01Example_09;
+import Example.Example_10.CE01Example_10;
+import Example.Example_11.CE01Example_11;
+import Example.Example_12.CE01Example_12;
+import Example.Example_13.CE01Example_13;
 
 import Practice.Practice_01.CP01Practice_01;
 import Practice.Practice_02.CP01Practice_02;
+import Practice.Practice_03.CP01Practice_03;
 
 import Training.Training_01.CT01Training_01;
 import Training.Training_02.CT01Training_02;
+import Training.Training_03.CT01Training_03;
+import Training.Training_04.CT01Training_04;
+import Training.Training_05.CT01Training_05;
+import Training.Training_06.CT01Training_06;
 
 /*
  * 클래스 (Class) 란?
  * - 연관 된 변수 or 메서드 등을 그룹화시킬 수 있는 기능을 의미한다. (+ 즉, 클래스 내부에는
- * 여러 기능이 존재한다는 것을 알 수 있다.)
+ * 여러 기능이 존재 한다는 것을 알 수 있다.)
  *
  * Java 는 객체 지향 프로그래밍 언어이기 때문에 명령문을 작성 할 수 있는 위치가 정해져있으며
  * 그중 하나가 메서드이다. (즉, 메서드 내부에 여러 명령문을 작성함으로서 특정 목적에 맞는 프로그램을 제작하는 것이
@@ -73,16 +83,26 @@ public class Main {
 //		CE01Example_01.start(args);
 //		CE01Example_02.start(args);
 //		CE01Example_03.start(args);
-		CE01Example_04.start(args);
+//		CE01Example_04.start(args);
 //		CE01Example_05.start(args);
 //		CE01Example_06.start(args);
 //		CE01Example_07.start(args);
 //		CE01Example_08.start(args);
+//		CE01Example_09.start(args);
+//		CE01Example_10.start(args);
+//		CE01Example_11.start(args);
+//		CE01Example_12.start(args);
+		CE01Example_13.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);
+//		CP01Practice_03.start(args);
 
 //		CT01Training_01.start(args);
 //		CT01Training_02.start(args);
+//		CT01Training_03.start(args);
+//		CT01Training_04.start(args);
+//		CT01Training_05.start(args);
+//		CT01Training_06.start(args);
 	}
 }

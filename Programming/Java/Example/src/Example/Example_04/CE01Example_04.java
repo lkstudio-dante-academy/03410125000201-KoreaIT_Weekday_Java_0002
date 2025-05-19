@@ -101,8 +101,8 @@ public class CE01Example_04 {
 		System.out.printf("%d != %d = %s\n", nValA, nValB, nValA != nValB);
 		
 		/*
-		 * 아래와 같이 논리 연산자의 피연산자는 참 or 거짓을 표현하는 boolean 데이터만 위치하는 것이
-		 * 가능하다. (+ 즉, boolean 이외의 자료형 데이터를 명시하면 컴파일 에러가 발생한다는 것을
+		 * 아래와 같이 논리 연산자의 피연산자는 참 or 거짓을 표현하는 boolean 데이터만 명시하는 것이
+		 * 가능하다. (+ 즉, boolean 이외의 자료형 데이터를 명시하면 컴파일 에러가 발생 한다는 것을
 		 * 의미한다.)
 		 */
 		System.out.println("\n=====> 논리 연산자 <=====");
@@ -142,15 +142,12 @@ public class CE01Example_04 {
 		System.out.println("\n=====> 조건 연산자 <=====");
 		System.out.printf("(%d >= %d) ? %d : %d = %d\n", nValA, nValB, nValA, nValB, nResult);
 		
-		/*
-		 * Integer.toString 메서드란?
-		 * - 10 진수로 표현 된 숫자 데이터를 다른 진수 데이터로 변환하는 역할을 수행하는 메서드를
-		 * 의미한다. (+ 즉, Integer.toString 메서드를 활용하면 간단하게 10 진수 데이터를
-		 * 다른 진수 데이터로 변환하는 것이 가능하다.)
-		 */
 		String oStr_ValA = Integer.toString(nValA, 2);
 		String oStr_ValB = Integer.toString(nValB, 2);
 		
+		/*
+		 * 아래와 같이 비트 연산자는 다른 연산자와 달리 비트 단위로 연산이 처리 된다는 것을 알 수 있다.
+		 */
 		System.out.println("\n=====> 비트 연산자 <=====");
 		System.out.printf("%s & %s = %s\n", oStr_ValA, oStr_ValB, Integer.toString(nValA & nValB, 2));
 		System.out.printf("%s | %s = %s\n", oStr_ValA, oStr_ValB, Integer.toString(nValA | nValB, 2));
