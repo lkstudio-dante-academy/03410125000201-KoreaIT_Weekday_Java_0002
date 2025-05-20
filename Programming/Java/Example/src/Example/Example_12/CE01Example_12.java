@@ -61,6 +61,10 @@ public class CE01Example_12 {
 			return 1;
 		}
 		
+		/*
+		 * 아래와 같이 메서드는 자기 자신을 다시 호출하는 것이 가능하다. (+ 즉, 재귀 호출 구조라는 것을
+		 * 알 수 있다.)
+		 */
 		return a_nVal * getVal_Factorial(a_nVal - 1);
 	}
 	
