@@ -150,5 +150,44 @@ public class CE01Example_05 {
 				System.out.println("F 학점입니다.");
 				break;
 		}
+		
+		System.out.print("\n정수 (1 ~ 10) 입력 : ");
+		int nVal = oScanner.nextInt();
+		
+		int nVal_Sum = 0;
+		
+		switch(nVal) {
+			case 10:
+				nVal_Sum += 10;
+			
+			case 9:
+				nVal_Sum += 9;
+			
+			case 8:
+				nVal_Sum += 8;
+			
+			case 7:
+				nVal_Sum += 7;
+			
+			case 6:
+				nVal_Sum += 6;
+			
+			case 5:
+				nVal_Sum += 5;
+			
+			case 4:
+				nVal_Sum += 4;
+			
+			case 3:
+				nVal_Sum += 3;
+			
+			case 2:
+				nVal_Sum += 2;
+			
+			case 1:
+				nVal_Sum += 1;
+		}
+		
+		System.out.printf("1 ~ %d 합계 : %d\n", nVal, nVal_Sum);
 	}
 }
