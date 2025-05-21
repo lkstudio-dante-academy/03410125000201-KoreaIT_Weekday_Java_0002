@@ -39,7 +39,7 @@ package Example.Example_16;
  * 단, 상속은 단방향이기 때문에 클래스가 서로를 상속하는 것은 불가능하다.
  *
  * 또한 상속은 무분별하게 사용하면 클래스 간에 관계가 복잡해지기 때문에 상속은 반드시 is a 의 규칙에 따라
- * 상속을 사용하는 것이 일반적인 관례이다. (+ 즉, is a 의 규칙에 위배 될 경우 잘못된 상속이라는 것을
+ * 상속을 사용하는 것이 일반적인 관례이다. (+ 즉, is a 의 규칙에 위반 될 경우 잘못된 상속이라는 것을
  * 알 수 있다.)
  *
  * 상속을 사용하는 이유
@@ -73,6 +73,9 @@ package Example.Example_16;
  * - 상속은 부모 클래스가 지니고 있는 기능을 자식 클래스를 통해 확장 시키는 것이 가능하다. (+ 즉,
  * 부모 클래스가 지니고 있는 기능을 자식 클래스가 재사용 함으로서 기존 클래스가 지니고 있는 기능을 확장 시킨
  * 새로운 클래스를 정의한다는 것을 알 수 있다.)
+ *
+ * 다형성이란?
+ * - 사물이 다양한 형태를 지니고 있는 개념을 의미한다. (+ 즉,
  */
 
 /**
@@ -81,6 +84,47 @@ package Example.Example_16;
 public class CE01Example_16 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		CBase oBaseA = new CBase(10, 3.14f);
+		
+		/*
+		 * 아래와 같이 protected 수준으로 명시 된 멤버는 동일한 패키지에서는 자유롭게 접근이 가능하다는 것을
+		 * 알 수 있다.
+		 */
+		oBaseA.m_fVal = 3.14f;
+		
+		/*
+		 * 아래와 같이 자식 클래스 객체를 부모 클래스로 참조하는 것이 가능하다. (+ 즉, 자식 클래스 객체를
+		 * 부모 클래스로 참조함으로서 자식 클래스 객체를 부모 클래스 객체로 인지한다는 것을 알 수 있다.)
+		 *
+		 * 단, 반대로 부모 클래스 객체를 자식 클래스로 참조하는 것은 불가능하다. (+ 즉, is a 의 관계를
+		 * 위반 된다는 것을 알 수 있다.)
+		 */
+		CBase oBaseB = new CDerived(20, 3.14f, "Hello, World!");
+		
+		CDerived oDerivedB = new CDerived(30, 3.14f, "Hello, World!");
+		
+		System.out.println("=====> 부모 클래스 <=====");
+		oBaseA.showInfo();
+		
+		System.out.println("\n=====> 자식 클래스 - A <=====");
+		oBaseB.showInfo();
+		
+		System.out.println("\n=====> 자식 클래스 - B <=====");
+		oDerivedB.showInfo();
+		
+		System.out.println("\n=====> 부모 클래스 -> 자식 클래스 <=====");
+		
+		/*
+		 * instanceof 키워드란?
+		 * - 안전한 다운 캐스팅을 지원하는 키워드를 의미한다. (+ 즉, instanceof 키워드를 활용하면
+		 * 변수가 실제 참조하는 대상을 확인하는 것이 가능하다.)
+		 *
+		 * Java 는 자식 클래스 객체를 부모 클래스로 참조하는 것이 가능하며 상황에 따라 실제 참조하는 객체를
+		 * 확인 할 필요가 있다.
+		 *
+		 * 이때 instanceof 키워드를 활용하면 안전하게 참조하는 객체를 검사하는 것이 가능하다.
+		 */
+		System.out.printf("Base A -> Derived : %s\n", oBaseA instanceof CDerived);
+		System.out.printf("Base B -> Derived : %s\n", oBaseB instanceof CDerived);
 	}
 }

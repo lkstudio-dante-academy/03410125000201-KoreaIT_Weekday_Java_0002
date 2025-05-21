@@ -36,7 +36,15 @@ public class CDerived extends CBase {
 	/** 정보를 출력한다 */
 	@Override
 	public void showInfo() {
+		/*
+		 * 아래와 같이 부모 클래스와 동일한 메서드가 자식 클래스에 존재 할 경우 자식 클래스가
+		 * 더 높은 우선 순위를 가진다.
+		 *
+		 * 따라서 부모 클래스에 존재하는 동일한 메서드를 호출하기 위해서는 반드시 super 키워드를
+		 * 명시해줘야한다. (+ 즉, super 키워드를 명시하지 않으면 재귀 호출이 된다는 것을 알 수 있다.)
+		 */
 		super.showInfo();
+		
 		System.out.printf("문자열 : %s\n", m_oStr);
 	}
 }

@@ -15,12 +15,48 @@ package Training.Training_02;
  * A0 학점입니다.
  */
 
+import java.util.Scanner;
+
 /**
  * Training 2
  */
 public class CT01Training_02 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Scanner oScanner = new Scanner(System.in);
+		
+		System.out.print("점수 입력 : ");
+		int nScore = oScanner.nextInt();
+		
+		// F 학점 일 경우
+		if(nScore < 60) {
+			System.out.print("F");
+		} else {
+			// A 학점 일 경우
+			if(nScore >= 90) {
+				System.out.print("A");
+			}
+			// B 학점 일 경우
+			else if(nScore >= 80) {
+				System.out.print("B");
+			}
+			// C 학점 일 경우
+			else if(nScore >= 70) {
+				System.out.print("C");
+			}
+			// D 학점 일 경우
+			else {
+				System.out.print("D");
+			}
+			
+			// + 학점 일 경우
+			if(nScore >= 100 || nScore % 10 >= 7) {
+				System.out.print("+");
+			} else {
+				System.out.printf("%s", (nScore % 10 <= 3) ? "-" : "0");
+			}
+		}
+		
+		System.out.println(" 학점입니다.");
 	}
 }
