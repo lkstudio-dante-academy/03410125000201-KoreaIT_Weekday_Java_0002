@@ -17,12 +17,33 @@ package Training.Training_03;
  * 평균 : 2.0
  */
 
+import java.util.Scanner;
+
 /**
  * Training 3
  */
 public class CT01Training_03 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		int nVal_Sum = 0;
+		int nNumValues = 0;
+		
+		Scanner oScanner = new Scanner(System.in);
+		
+		do {
+			System.out.printf("%d 번째 정수 입력 : ", nNumValues + 1);
+			int nVal = oScanner.nextInt();
+			
+			// 입력이 종료 되었을 경우
+			if(nVal <= 0) {
+				break;
+			}
+			
+			nVal_Sum += nVal;
+			nNumValues += 1;
+		} while(true);
+		
+		System.out.printf("\n합계 : %d\n", nVal_Sum);
+		System.out.printf("평균 : %f\n", nVal_Sum / (float)nNumValues);
 	}
 }
