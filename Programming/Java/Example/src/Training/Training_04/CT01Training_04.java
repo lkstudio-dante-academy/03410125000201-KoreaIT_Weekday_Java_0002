@@ -22,12 +22,33 @@ package Training.Training_04;
  * 프로그램을 종료합니다.
  */
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * Training 4
  */
 public class CT01Training_04 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Random oRandom = new Random();
+		int nAnswer = oRandom.nextInt(1, 100);
+		
+		Scanner oScanner = new Scanner(System.in);
+		System.out.printf("정답 : %d\n\n", nAnswer);
+		
+		while(true) {
+			System.out.print("정수 입력 : ");
+			int nVal = oScanner.nextInt();
+			
+			// 정답 일 경우
+			if(nVal == nAnswer) {
+				System.out.println("정답입니다.");
+				break;
+			}
+			
+			String oStr = (nVal < nAnswer) ? "큽니다." : "작습니다.";
+			System.out.printf("정답은 %d 보다 %s\n\n", nVal, oStr);
+		}
 	}
 }

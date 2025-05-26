@@ -27,12 +27,35 @@ package Training.Training_05;
  * ...이하 생략
  */
 
+import java.util.Scanner;
+
 /**
  * Training 5
  */
 public class CT01Training_05 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Scanner oScanner = new Scanner(System.in);
+		System.out.print("정수 (2 개) 입력 : ");
+		
+		int nValA = oScanner.nextInt();
+		int nValB = oScanner.nextInt();
+		
+		// A 가 클 경우
+		if(nValA > nValB) {
+			int nTemp = nValA;
+			nValA = nValB;
+			nValB = nTemp;
+		}
+		
+		for(int i = nValA; i <= nValB; ++i) {
+			System.out.printf("=====> %d 단 <=====\n", i);
+			
+			for(int j = 1; j < 10; ++j) {
+				System.out.printf("%d * %d = %d\n", i, j, i * j);
+			}
+			
+			System.out.println();
+		}
 	}
 }
