@@ -21,12 +21,42 @@ package Practice.Practice_01;
  * 1, 3, 5, 4, 2
  */
 
+import java.util.Scanner;
+
 /**
  * Practice 1
  */
 public class CP01Practice_01 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Scanner oScanner = new Scanner(System.in);
+		
+		System.out.print("개수 입력 : ");
+		int nNumValues = oScanner.nextInt();
+		
+		int nIdx_Odd = 0;
+		int nIdx_Even = nNumValues - 1;
+		
+		int[] oValues = new int[nNumValues];
+		
+		for(int i = 0; i < oValues.length; ++i) {
+			System.out.printf("%d 번째 정수 입력 : ", i + 1);
+			int nVal = oScanner.nextInt();
+			
+			// 홀수 일 경우
+			if(nVal % 2 != 0) {
+				oValues[nIdx_Odd++] = nVal;
+			} else {
+				oValues[nIdx_Even--] = nVal;
+			}
+		}
+		
+		System.out.println("\n=====> 배열 <=====");
+		
+		for(int nVal : oValues) {
+			System.out.printf("%d, ", nVal);
+		}
+		
+		System.out.println();
 	}
 }

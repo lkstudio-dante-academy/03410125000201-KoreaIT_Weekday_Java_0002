@@ -33,6 +33,19 @@ import Example.Example_17.CE01Example_17;
 import Example.Example_18.CE01Example_18;
 import Example.Example_19.CE01Example_19;
 import Example.Example_20.CE01Example_20;
+import Example.Example_21.CE01Example_21;
+import Example.Example_22.CE01Example_22;
+import Example.Example_23.CE01Example_23;
+import Example.Example_24.CE01Example_24;
+import Example.Example_25.CE01Example_25;
+import Example.Example_26.CE01Example_26;
+import Example.Example_27.CE01Example_27;
+import Example.Example_28.CE01Example_28;
+import Example.Example_29.CE01Example_29;
+import Example.Example_30.CE01Example_30;
+import Example.Example_31.CE01Example_31;
+import Example.Example_32.CE01Example_32;
+import Example.Example_33.CE01Example_33;
 
 import Practice.Practice_01.CP01Practice_01;
 import Practice.Practice_02.CP01Practice_02;
@@ -44,6 +57,9 @@ import Training.Training_03.CT01Training_03;
 import Training.Training_04.CT01Training_04;
 import Training.Training_05.CT01Training_05;
 import Training.Training_06.CT01Training_06;
+import Training.Training_07.CT01Training_07;
+import Training.Training_08.CT01Training_08;
+import Training.Training_09.CT01Training_09;
 
 /*
  * 클래스 (Class) 란?
@@ -107,6 +123,19 @@ public class Main {
 //		CE01Example_18.start(args);
 //		CE01Example_19.start(args);
 //		CE01Example_20.start(args);
+//		CE01Example_21.start(args);
+//		CE01Example_22.start(args);
+//		CE01Example_23.start(args);
+//		CE01Example_24.start(args);
+//		CE01Example_25.start(args);
+//		CE01Example_26.start(args);
+//		CE01Example_27.start(args);
+//		CE01Example_28.start(args);
+//		CE01Example_29.start(args);
+//		CE01Example_30.start(args);
+//		CE01Example_31.start(args);
+//		CE01Example_32.start(args);
+//		CE01Example_33.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);
@@ -118,5 +147,8 @@ public class Main {
 //		CT01Training_04.start(args);
 //		CT01Training_05.start(args);
 		CT01Training_06.start(args);
+//		CT01Training_07.start(args);
+//		CT01Training_08.start(args);
+//		CT01Training_09.start(args);
 	}
 }
