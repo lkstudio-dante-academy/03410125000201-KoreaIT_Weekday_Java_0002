@@ -54,7 +54,7 @@ public class CE01Example_10 {
 	}
 	
 	/** 거듭 제곱 값을 반환한다 */
-	public static int getVal_Pow(int a_nVal, int a_nPow) {
+	private static int getVal_Pow(int a_nVal, int a_nPow) {
 		int nVal_Pow = 1;
 		
 		for(int i = 0; i < a_nPow; ++i) {

@@ -91,18 +91,18 @@ public class CE01Example_11 {
 	}
 	
 	/** 최대 값을 반환한다 */
-	public static int getVal_Max(int a_nValA, int a_nValB) {
+	private static int getVal_Max(int a_nValA, int a_nValB) {
 		return (a_nValA >= a_nValB) ? a_nValA : a_nValB;
 	}
 	
 	/** 최대 값을 반환한다 */
-	public static int getVal_Max(int a_nValA, int a_nValB, int a_nValC) {
+	private static int getVal_Max(int a_nValA, int a_nValB, int a_nValC) {
 		int nVal_Max = getVal_Max(a_nValA, a_nValB);
 		return getVal_Max(nVal_Max, a_nValC);
 	}
 	
 	/** 합계를 반환한다 */
-	public static int getVal_Sum(int... a_oValues) {
+	private static int getVal_Sum(int... a_oValues) {
 		int nVal_Sum = 0;
 		
 		/*

@@ -113,7 +113,7 @@ public class CE01Example_09 {
 	}
 	
 	/** 수식 결과를 반환한다 */
-	public static double getResult_Calc(int a_nValA, String a_oOperator, int a_nValB) {
+	private static double getResult_Calc(int a_nValA, String a_oOperator, int a_nValB) {
 		switch(a_oOperator) {
 			case "+":
 				/*

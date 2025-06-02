@@ -55,7 +55,7 @@ public class CE01Example_12 {
 	}
 	
 	/** 팩토리얼 값을 반환한다 */
-	public static int getVal_Factorial(int a_nVal) {
+	private static int getVal_Factorial(int a_nVal) {
 		// 재귀 호출이 불가능 할 경우
 		if(a_nVal <= 0) {
 			return 1;
@@ -69,7 +69,7 @@ public class CE01Example_12 {
 	}
 	
 	/** 피보나치 값을 반환한다 */
-	public static int getVal_Fibonacci(int a_nVal) {
+	private static int getVal_Fibonacci(int a_nVal) {
 		// 재귀 호출이 불가능 할 경우
 		if(a_nVal <= 1) {
 			return (a_nVal <= 0) ? 0 : 1;
@@ -79,7 +79,7 @@ public class CE01Example_12 {
 	}
 	
 	/** 합계를 반환한다 */
-	public static int getVal_Sum(int[] a_oValues, int a_nIdx) {
+	private static int getVal_Sum(int[] a_oValues, int a_nIdx) {
 		// 재귀 호출이 불가능 할 경우
 		if(a_nIdx >= a_oValues.length) {
 			return 0;
