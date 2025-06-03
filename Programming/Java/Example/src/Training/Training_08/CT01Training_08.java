@@ -29,19 +29,19 @@ public class CT01Training_08 {
 		System.out.print("원반 번호 입력 : ");
 		int nNumDisc = oScanner.nextInt();
 		
-		printHanoiTower(nNumDisc, "A", "C", "B");
+		printResult_HanoiTower(nNumDisc, "A", "C", "B");
 	}
 	
-	/** 하노이 탑을 출력한다 */
-	private static void printHanoiTower(int a_nNumDisc, String a_oFrom, String a_oTo, String a_oBuffer) {
+	/** 하노이 탑 결과를 출력한다 */
+	private static void printResult_HanoiTower(int a_nNumDisc, String a_oFrom, String a_oTo, String a_oBuffer) {
 		// 결과 출력이 불가능 할 경우
 		if(a_nNumDisc <= 0) {
 			return;
 		}
 		
-		printHanoiTower(a_nNumDisc - 1, a_oFrom, a_oBuffer, a_oTo);
+		printResult_HanoiTower(a_nNumDisc - 1, a_oFrom, a_oBuffer, a_oTo);
 		System.out.printf("%d 번 원반 : %s -> %s 이동\n", a_nNumDisc, a_oFrom, a_oTo);
 		
-		printHanoiTower(a_nNumDisc - 1, a_oBuffer, a_oTo, a_oFrom);
+		printResult_HanoiTower(a_nNumDisc - 1, a_oBuffer, a_oTo, a_oFrom);
 	}
 }
