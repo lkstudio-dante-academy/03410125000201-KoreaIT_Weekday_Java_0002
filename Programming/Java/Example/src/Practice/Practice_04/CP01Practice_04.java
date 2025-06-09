@@ -41,12 +41,55 @@ package Practice.Practice_04;
  * 프로그램을 종료합니다.
  */
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * Practice 4
  */
 public class CP01Practice_04 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Scanner oScanner = new Scanner(System.in);
+		
+		int[][] oValues = new int[5][5];
+		setupValues(oValues);
+		
+		printValues(oValues);
+	}
+	
+	/** 값을 설정한다 */
+	private static void setupValues(int[][] a_oOutValues) {
+		int nVal = 0;
+		Random oRandom = new Random();
+		
+		for(int i = 0; i < a_oOutValues.length; ++i) {
+			for(int j = 0; j < a_oOutValues[i].length; ++j) {
+				a_oOutValues[i][j] = nVal++;
+			}
+		}
+		
+		for(int i = 0; i < a_oOutValues.length; ++i) {
+			for(int j = 0; j < a_oOutValues[i].length; ++j) {
+				int nRow = oRandom.nextInt(0, a_oOutValues.length);
+				int nCol = oRandom.nextInt(0, a_oOutValues[i].length);
+				
+				int nTemp = a_oOutValues[i][j];
+				a_oOutValues[i][j] = a_oOutValues[nRow][nCol];
+				a_oOutValues[nRow][nCol] = nTemp;
+			}
+		}
+	}
+	
+	/** 값을 출력한다 */
+	private static void printValues(int[][] a_oValues) {
+		for(int i = 0; i < a_oValues.length; ++i) {
+			for(int j = 0; j < a_oValues[i].length; ++j) {
+				int nVal = a_oValues[i][j];
+				System.out.printf("%4s", (nVal <= 0) ? " " : Integer.toString(nVal));
+			}
+			
+			System.out.println();
+		}
 	}
 }
