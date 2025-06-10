@@ -66,5 +66,10 @@ public class CE01Example_13 {
 		
 		System.out.println("\n=====> 캐릭터 - B <=====");
 		oCharacterB.showInfo();
+		
+		oCharacterA.levelUp();
+		
+		System.out.println("\n=====> 캐릭터 - A (레벨 업 후) <=====");
+		oCharacterA.showInfo();
 	}
 }

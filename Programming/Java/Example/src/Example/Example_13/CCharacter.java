@@ -8,6 +8,13 @@ public class CCharacter {
 	public int m_nHp = 0;
 	public int m_nAtk = 0;
 	
+	/** 레벨을 증가 시킨다 */
+	public void levelUp() {
+		m_nLv += 1;
+		m_nHp += 10;
+		m_nAtk += 5;
+	}
+	
 	/** 정보를 출력한다 */
 	public void showInfo() {
 		/*
