@@ -120,18 +120,17 @@ public class CE01Example_16 {
 		 * 단, 반대로 부모 클래스 객체를 자식 클래스로 참조하는 것은 불가능하다. (+ 즉, is a 의 관계를
 		 * 위반 된다는 것을 알 수 있다.)
 		 */
-		CBase oBaseB = new CDerived(20, 3.14f, "Hello, World!");
-		
+		CBase oDerivedA = new CDerived(20, 3.14f, "Hello, World!");
 		CDerived oDerivedB = new CDerived(30, 3.14f, "Hello, World!");
 		
 		System.out.println("=====> 부모 클래스 <=====");
-		oBaseA.showInfo();
+		oBaseA.showInfo_Parent();
 		
 		System.out.println("\n=====> 자식 클래스 - A <=====");
-		oBaseB.showInfo();
+		oDerivedA.showInfo();
 		
 		System.out.println("\n=====> 자식 클래스 - B <=====");
-		oDerivedB.showInfo();
+		oDerivedB.showInfo_Child();
 		
 		System.out.println("\n=====> 부모 클래스 -> 자식 클래스 <=====");
 		
@@ -146,6 +145,6 @@ public class CE01Example_16 {
 		 * 이때 instanceof 키워드를 활용하면 안전하게 참조하는 객체를 검사하는 것이 가능하다.
 		 */
 		System.out.printf("Base A -> Derived : %s\n", oBaseA instanceof CDerived);
-		System.out.printf("Base B -> Derived : %s\n", oBaseB instanceof CDerived);
+		System.out.printf("Base B -> Derived : %s\n", oDerivedA instanceof CDerived);
 	}
 }

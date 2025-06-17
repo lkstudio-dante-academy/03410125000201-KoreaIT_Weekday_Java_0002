@@ -43,8 +43,21 @@ public class CDerived extends CBase {
 		 * 따라서 부모 클래스에 존재하는 동일한 메서드를 호출하기 위해서는 반드시 super 키워드를
 		 * 명시해줘야한다. (+ 즉, super 키워드를 명시하지 않으면 재귀 호출이 된다는 것을 알 수 있다.)
 		 */
-		super.showInfo();
+//		super.showInfo();
 		
+		this.showInfo_Child();
+	}
+	
+	/** 정보를 출력한다 */
+	public void showInfo_Child() {
+		this.showInfo_Parent();
 		System.out.printf("문자열 : %s\n", m_oStr);
+		
+		/*
+		 * 부모 클래스에 존재하는 private 수준의 멤버는 자식 클래스에서 접근하는 것이 불가능하다. (+ 즉,
+		 * private 수준은 클래스 내부에서만 접근이 가능하기 때문에 자식 클래스도 예외가 아니라는 것을
+		 * 알 수 있다.)
+		 */
+//		System.out.printf("정수 : %d\n", m_nVal);
 	}
 }

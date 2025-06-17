@@ -15,6 +15,11 @@ public class CBase {
 	
 	/** 정보를 출력한다 */
 	public void showInfo() {
+		this.showInfo_Parent();
+	}
+	
+	/** 정보를 출력한다 */
+	public void showInfo_Parent() {
 		System.out.printf("정수 : %d\n", m_nVal);
 		System.out.printf("실수 : %f\n", m_fVal);
 	}
