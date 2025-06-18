@@ -35,7 +35,7 @@ public class CT01Training_15 {
 		
 		// 네임드 몬스터 일 경우
 		if(oMonster instanceof CMonster_Named) {
-			System.out.println("\n-----> 네임드 몬스터 등장!");
+			System.out.println("\n-----> 네임드 몬스터 등장!\n");
 		}
 	}
 	
