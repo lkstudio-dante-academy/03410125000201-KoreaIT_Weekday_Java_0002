@@ -35,8 +35,54 @@ public class CT01Training_15 {
 		
 		// 네임드 몬스터 일 경우
 		if(oMonster instanceof CMonster_Named) {
-			System.out.println("\n-----> 네임드 몬스터 등장!\n");
+			System.out.println("\n-----> 네임드 몬스터 등장!");
 		}
+		
+		System.out.println();
+		
+		try {
+			do {
+				oCharacter.attack(oMonster);
+				
+				System.out.println("=====> 플레이어 공격 후 <=====");
+				showInfo(oCharacter, oMonster);
+				
+				System.out.println();
+				Thread.sleep(500);
+				
+				// 몬스터가 사망했을 경우
+				if(oMonster.getHp() <= 0) {
+					break;
+				}
+				
+				oMonster.attack(oCharacter);
+				
+				System.out.println("=====> 몬스터 공격 후 <=====");
+				showInfo(oCharacter, oMonster);
+				
+				System.out.println();
+				Thread.sleep(500);
+				
+				// 캐릭터가 사망했을 경우
+				if(oCharacter.getHp() <= 0) {
+					break;
+				}
+			} while(true);
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
+		
+		String oWinner = (oCharacter.getHp() > 0) ? "캐릭터" : "몬스터";
+		System.out.printf("%s 가 승리했습니다.\n", oWinner);
+	}
+	
+	/** 정보를 출력한다 */
+	private static void showInfo(CCharacter a_oCharacter, CMonster a_oMonster) {
+		System.out.println("-----> 플레이어 정보");
+		a_oCharacter.showInfo();
+		
+		System.out.println("\n-----> 몬스터 정보");
+		a_oMonster.showInfo();
 	}
 	
 	/** 몬스터를 생성한다 */

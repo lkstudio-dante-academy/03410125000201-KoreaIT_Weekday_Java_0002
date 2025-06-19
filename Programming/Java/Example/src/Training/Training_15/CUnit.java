@@ -15,6 +15,11 @@ public class CUnit {
 		this.m_nDef = a_nDef;
 	}
 	
+	/** 체력을 반환한다 */
+	public int getHp() {
+		return m_nHp;
+	}
+	
 	/** 공격력을 반환한다 */
 	public int getAtk() {
 		return m_nAtk;
@@ -26,5 +31,12 @@ public class CUnit {
 		nDamage = Math.max(0, nDamage);
 		
 		a_oTarget.m_nHp = Math.max(0, a_oTarget.m_nHp - nDamage);
+	}
+	
+	/** 정보를 출력한다 */
+	public void showInfo() {
+		System.out.printf("체력 : %d\n", m_nHp);
+		System.out.printf("공격력 : %d\n", m_nAtk);
+		System.out.printf("방어력 : %d\n", m_nDef);
 	}
 }
