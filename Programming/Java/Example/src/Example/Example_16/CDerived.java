@@ -16,6 +16,7 @@ public class CDerived extends CBase {
 	 * 호출하는 명령문이 자동으로 추가된다. (+ 즉, 부모 클래스에 기본 생성자가 없을 경우 반드시
 	 * 자식 클래스의 생성자에서 부모 클래스의 생성자를 호출해줘야한다는 것을 알 수 있다.)
 	 */
+	
 	/** 생성자 */
 	public CDerived(int a_nVal, float a_fVal, String a_oStr) {
 		/*
@@ -33,6 +34,7 @@ public class CDerived extends CBase {
 	 * - 부모 클래스에 존재하는 메서드를 자식 클래스에서 재정의하는 기능을 의미한다. (+ 즉,
 	 * 부모 클래스에 존재하는 멤버를 자식 클래스에도 정의하는 것이 가능하다.)
 	 */
+	
 	/** 정보를 출력한다 */
 	@Override
 	public void showInfo() {

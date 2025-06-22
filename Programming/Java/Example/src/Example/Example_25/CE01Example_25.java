@@ -71,7 +71,8 @@ public class CE01Example_25 {
 		sortValues(oListValues, new ICompare() {
 			/** 값을 비교한다 */
 			@Override
-			public int compare(int a_nLhs, int a_nRhs) {;
+			public int compare(int a_nLhs, int a_nRhs) {
+				;
 				return a_nLhs - a_nRhs;
 			}
 		});

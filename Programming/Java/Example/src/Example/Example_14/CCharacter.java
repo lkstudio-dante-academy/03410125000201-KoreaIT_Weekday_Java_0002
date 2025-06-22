@@ -21,6 +21,7 @@ public class CCharacter {
 	 * 자동으로 구현 해주지 않기 때문에 만약 기본 생성자가 필요하다면 반드시 명시적으로 기본 생성자를
 	 * 구현 해줘야한다.
 	 */
+	
 	/** 생성자 */
 	public CCharacter() {
 		/*

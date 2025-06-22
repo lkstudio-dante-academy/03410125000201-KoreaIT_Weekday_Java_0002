@@ -7,7 +7,7 @@ package Training.Training_16;
  * - 사용자로부터 도형을 입력 받아 해당 도형을 생성한다
  * - 도형은 색상 정보를 지니고 있다 (+ 빨간색, 녹색, 파란색)
  * - 단, 색상은 도형을 생성 할 때 랜덤하게 설정한다
- * 
+ *
  * Ex)
  * =====> 메뉴 <=====
  * 1. 선 추가
@@ -15,7 +15,7 @@ package Training.Training_16;
  * 3. 사각형 추가
  * 4. 모든 도형 그리기
  * 5. 종료
- * 
+ *
  * 선택 : 1
  * 빨간색 선을 추가했습니다.
  *
@@ -27,6 +27,7 @@ package Training.Training_16;
  * 녹색 삼각형을 그렸습니다.
  */
 
+import java.util.Random;
 import java.util.Scanner;
 
 /*
@@ -35,6 +36,7 @@ import java.util.Scanner;
 public class CT01Training_16 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		CCanvas oCanvas = new CCanvas();
 		Scanner oScanner = new Scanner(System.in);
 		
 		do {
@@ -44,6 +46,21 @@ public class CT01Training_16 {
 			// 종료 일 경우
 			if(nMenu == MENU_EXIT) {
 				break;
+			}
+			
+			switch(nMenu) {
+				case MENU_ADD_LINE:
+				case MENU_ADD_TRIANGLE:
+				case MENU_ADD_RECTANGLE:
+					CShape oShape = createShape(nMenu);
+					System.out.printf("%s %s 을(를) 추가했습니다.\n", oShape.getStr_Color(), oShape.getStr_Shape());
+					
+					oCanvas.addShape(oShape);
+					break;
+				
+				case MENU_DRAW_SHAPES_ALL:
+					oCanvas.drawShapes_All();
+					break;
 			}
 			
 			System.out.println();
@@ -71,5 +88,24 @@ public class CT01Training_16 {
 		System.out.println("5. 종료");
 		
 		System.out.print("\n선택 : ");
+	}
+	
+	/** 도형을 생성한다 */
+	private static CShape createShape(int a_nMenu) {
+		Random oRandom = new Random();
+		int nColor = oRandom.nextInt(CShape.COLOR_RED, CShape.COLOR_BLUE + 1);
+		
+		switch(a_nMenu) {
+			case MENU_ADD_LINE:
+				return new CLine(nColor);
+			
+			case MENU_ADD_TRIANGLE:
+				return new CTriangle(nColor);
+			
+			case MENU_ADD_RECTANGLE:
+				return new CRectangle(nColor);
+		}
+		
+		return null;
 	}
 }

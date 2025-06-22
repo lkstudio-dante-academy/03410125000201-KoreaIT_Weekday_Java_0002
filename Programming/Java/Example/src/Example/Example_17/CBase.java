@@ -36,6 +36,7 @@ public abstract class CBase {
 	 * 만약 자식 클래스에서 부모 클래스에 존재하는 추상 메서드를 재정의 하지 않았을 경우 자식 클래스도
 	 * 객체화가 불가능한 추상 클래스가 된다. (+ 즉, 자식 클래스도 미완성 클래스가 된다는 것을 의미한다.)
 	 */
+	
 	/** 정보를 출력한다 */
 	protected abstract void showInfo_Internal();
 }
