@@ -131,7 +131,7 @@ public class Main {
 //		CE01Example_16.start(args);
 //		CE01Example_17.start(args);
 //		CE01Example_18.start(args);
-//		CE01Example_19.start(args);
+		CE01Example_19.start(args);
 //		CE01Example_20.start(args);
 //		CE01Example_21.start(args);
 //		CE01Example_22.start(args);
@@ -167,6 +167,6 @@ public class Main {
 //		CT01Training_13.start(args);
 //		CT01Training_14.start(args);
 //		CT01Training_15.start(args);
-		CT01Training_16.start(args);
+//		CT01Training_16.start(args);
 	}
 }
