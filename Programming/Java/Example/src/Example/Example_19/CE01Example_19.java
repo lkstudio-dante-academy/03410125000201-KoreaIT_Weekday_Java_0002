@@ -115,9 +115,8 @@ public class CE01Example_19 {
 			invokeException();
 			
 			/*
-			 * invokeException 메서드 내부에서 예외가 발생 했기 때문에 아래 명령문은
-			 * 실행 되지 않는다는 것을 알 수 있다. (+ 즉, 예외가 발생한 라인 이후에 명령문은
-			 * 실행 되지 않는다는 것을 의미한다.)
+			 * invokeException 메서드 내부에서 예외가 발생 했기 때문에 아래 명령문은 실행 되지 않는다는 것을
+			 * 알 수 있다. (+ 즉, 예외가 발생한 라인 이후에 명령문은 실행 되지 않는다는 것을 의미한다.)
 			 */
 			System.out.println("예외가 발생해서 해당 메세지는 출력 되지 않습니다.");
 		} catch(Exception oException) {
@@ -134,8 +133,8 @@ public class CE01Example_19 {
 			throw new CException("사용자 정의 예외");
 		} finally {
 			/*
-			 * 아래와 같이 finally 블럭 내부에 존재하는 명령문은 예외 발생 여부와 상관 없이
-			 * 항상 실행 된다는 것을 알 수 있다.
+			 * 아래와 같이 finally 블럭 내부에 존재하는 명령문은 예외 발생 여부와 상관 없이 항상 실행 된다는 것을
+			 * 알 수 있다.
 			 */
 			System.out.println("finally 블럭이 실행되었습니다.");
 		}
