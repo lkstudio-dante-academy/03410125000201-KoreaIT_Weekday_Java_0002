@@ -35,20 +35,9 @@ package Example.Example_23;
 public class CE01Example_23 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		COuter.incrVal(10);
-		COuter.incrVal(10);
-		
 		/*
 		 * 아래와 같이 정적 중첩 클래스는 외부 클래스 내부에 정의 되었기 때문에
 		 * 해당 클래스에 접근하기 위해서는 외부 클래스 이름을 명시해야한다는 것을 알 수 있다.
 		 */
-		COuter.CNested_Static.incrVal(10);
-		COuter.CNested_Static.incrVal(10);
-		
-		System.out.println("=====> 외부 클래스 <=====");
-		COuter.showInfo();
-		
-		System.out.println("\n=====> 정적 중첩 클래스 <=====");
-		COuter.CNested_Static.showInfo();
 	}
 }

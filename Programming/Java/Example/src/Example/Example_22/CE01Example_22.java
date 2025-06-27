@@ -31,8 +31,6 @@ package Example.Example_22;
  * 만들어내지 못한다는 것을 알 수 있다.)
  */
 
-import Example.Example_20.CWidget;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -42,20 +40,15 @@ import java.lang.reflect.Method;
 public class CE01Example_22 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		CWidget oWidget = new CWidget(10, 3.14f);
-		
 		/*
 		 * 아래와 같이 getClass 메서드를 활용하면 특정 클래스의 정보를 지니고 있는 Class 객체를 가져오는 것이
 		 * 가능하다.
 		 */
-		Class<CWidget> oCls = (Class<CWidget>)oWidget.getClass();
 		
-		try {
 			/*
 			 * Class 클래스에 존재하는 get 계열 메서드를 활용하면 변수 or 메서드 등의 정보를 가져오는 것이
 			 * 가능하다.
 			 */
-			Field oField_Lv = oCls.getDeclaredField("m_nLv");
 			
 			/*
 			 * Field 객체를 활용하면 특정 객체가 지니고 있는 멤버 변수의 데이터를 변경하거나 가져오는 것이
@@ -65,30 +58,5 @@ public class CE01Example_22 {
 			 * setAccessible 메서드를 활용해야한다. (+ 즉, setAccessible 메서드를 통해
 			 * private 멤버에 접근을 허용하는 것이 가능하다.)
 			 */
-			oField_Lv.setAccessible(true);
-			
-			oField_Lv.set(oWidget, 10);
-			Method oMethod_toString = oCls.getDeclaredMethod("toString");
-			
-			System.out.println("=====> 캐릭터 <=====");
-			System.out.println(oMethod_toString.invoke(oWidget));
-			
-			Field[] oFields = oCls.getDeclaredFields();
-			Method[] oMethods = oCls.getDeclaredMethods();
-			
-			System.out.println("\n=====> 필드 정보 <=====");
-			
-			for(int i = 0; i < oFields.length; ++i) {
-				System.out.println(oFields[i]);
-			}
-			
-			System.out.println("\n=====> 메서드 정보 <=====");
-			
-			for(int i = 0; i < oMethods.length; ++i) {
-				System.out.println(oMethods[i]);
-			}
-		} catch(Exception oException) {
-			oException.printStackTrace();
-		}
 	}
 }

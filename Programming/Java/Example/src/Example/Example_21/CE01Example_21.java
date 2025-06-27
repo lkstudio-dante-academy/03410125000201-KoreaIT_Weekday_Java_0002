@@ -44,28 +44,17 @@ import java.util.Random;
 public class CE01Example_21 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		Random oRandom = new Random();
-		ArrayList<Integer> oListValues = new ArrayList<Integer>();
-		
-		for(int i = 0; i < 10; ++i) {
 			/*
 			 * 아래와 같이 기본 자료형 데이터를 명시해도 내부적으로 Boxing 에 의해서 래퍼 클래스 객체로
 			 * 변환 된다는 것을 알 수 있다.
 			 */
-			Integer oVal = oRandom.nextInt(1, 100);
-			oListValues.add(oVal);
-		}
 		
 		System.out.println("=====> 리스트 <=====");
 		
-		for(int i = 0; i < oListValues.size(); ++i) {
 			/*
 			 * 아래와 같이 래퍼 클래스 객체를 기본 자료형 변수에 할당 할 경우 내부적으로 Unboxing 에 의해서
 			 * 자동으로 기본 자료형으로 변환 된다는 것을 알 수 있다.
 			 */
-			int nVal = oListValues.get(i);
-			System.out.printf("%d, ", nVal);
-		}
 		
 		System.out.println();
 	}
