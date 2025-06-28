@@ -34,4 +34,10 @@ public class CWidget {
 	public Object clone() {
 		return new CWidget(m_nVal, m_fVal);
 	}
+	
+	/** 정보를 반환한다 */
+	@Override
+	public String toString() {
+		return String.format("정수 : %d\n실수 : %f", m_nVal, m_fVal);
+	}
 }

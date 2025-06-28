@@ -40,15 +40,21 @@ import java.lang.reflect.Method;
 public class CE01Example_22 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		CWidget oWidget = new CWidget();
+		
 		/*
 		 * 아래와 같이 getClass 메서드를 활용하면 특정 클래스의 정보를 지니고 있는 Class 객체를 가져오는 것이
 		 * 가능하다.
 		 */
+		Class<CWidget> oCls_Widget = (Class<CWidget>)oWidget.getClass();
 		
+		try {
 			/*
 			 * Class 클래스에 존재하는 get 계열 메서드를 활용하면 변수 or 메서드 등의 정보를 가져오는 것이
 			 * 가능하다.
 			 */
+			Field oField_Val = oCls_Widget.getDeclaredField("m_nVal");
+			Field oField_StaticVal = oCls_Widget.getDeclaredField("m_nVal_Static");
 			
 			/*
 			 * Field 객체를 활용하면 특정 객체가 지니고 있는 멤버 변수의 데이터를 변경하거나 가져오는 것이
@@ -58,5 +64,18 @@ public class CE01Example_22 {
 			 * setAccessible 메서드를 활용해야한다. (+ 즉, setAccessible 메서드를 통해
 			 * private 멤버에 접근을 허용하는 것이 가능하다.)
 			 */
+			oField_Val.setAccessible(true);
+			oField_StaticVal.setAccessible(true);
+			
+			oField_Val.set(oWidget, 10);
+			oField_StaticVal.set(null, 20);
+			
+			Method oMethod_ShowInfo = oCls_Widget.getDeclaredMethod("showInfo");
+			
+			System.out.println("=====> 정보 <=====");
+			oMethod_ShowInfo.invoke(oWidget);
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 	}
 }

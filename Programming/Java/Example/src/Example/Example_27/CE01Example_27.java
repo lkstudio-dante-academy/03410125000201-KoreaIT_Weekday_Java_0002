@@ -31,8 +31,8 @@ public class CE01Example_27 {
 	public static void start(String[] args) {
 		Random oRandom = new Random();
 		
-		CList_Linked<Integer> oListValuesA = new CList_Linked<Integer>();
-		CList_Linked<Float> oListValuesB = new CList_Linked<Float>();
+		CList_Linked<Integer> oListValuesA = new CList_Linked<>();
+		CList_Linked<Float> oListValuesB = new CList_Linked<>();
 		
 		for(int i = 0; i < 10; ++i) {
 			oListValuesA.addVal(oRandom.nextInt(1, 100));
