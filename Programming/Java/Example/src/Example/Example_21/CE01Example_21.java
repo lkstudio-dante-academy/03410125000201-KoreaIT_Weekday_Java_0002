@@ -22,7 +22,7 @@ package Example.Example_21;
  * - Double				<- double
  *
  * Ex)
- * ArrayList<Integer> oListValues = new ArrayList<Integer>();
+ * List<Integer> oListValues = new ArrayList<>();
  * oListValues.add(10);
  * oListValues.add(20);
  * oListValues.add(30);
@@ -36,6 +36,7 @@ package Example.Example_21;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -45,7 +46,7 @@ public class CE01Example_21 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		Random oRandom = new Random();
-		ArrayList<Integer> oListValues = new ArrayList<>();
+		List<Integer> oListValues = new ArrayList<>();
 		
 		for(int i = 0; i < 10; ++i) {
 			int nVal = oRandom.nextInt(1, 100);

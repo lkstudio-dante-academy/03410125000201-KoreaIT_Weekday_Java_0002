@@ -41,7 +41,10 @@ package Example.Example_25;
  * 알 수 있다.)
  */
 
+import Example.Example_18.IWriter;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -50,97 +53,26 @@ import java.util.Random;
 public class CE01Example_25 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		IWriter oLambda = getLambda(10);
-		oLambda.writeVal();
-		
-		Random oRandom = new Random();
-		ArrayList<Integer> oListValues = new ArrayList<Integer>();
-		
-		for(int i = 0; i < 10; ++i) {
-			oListValues.add(oRandom.nextInt(1, 100));
-		}
-		
-		System.out.println("\n=====> 리스트 <=====");
-		printValues(oListValues);
-		
 		/*
 		 * 아래와 같이 익명 내부 클래스를 활용하면 일회성 객체를 생성하는 것이 가능하다. (+ 즉,
 		 * 익명 내부 클래스는 일반적으로 재사용 되지 않는 임시 객체를 생성 할 때 주로 활용 된다는 것을
 		 * 알 수 있다.)
 		 */
-		sortValues(oListValues, new ICompare() {
-			/** 값을 비교한다 */
-			@Override
-			public int compare(int a_nLhs, int a_nRhs) {
-				;
-				return a_nLhs - a_nRhs;
-			}
-		});
-		
-		System.out.println("\n=====> 리스트 - 오름 차순 정렬 후 <=====");
-		printValues(oListValues);
 		
 		/*
-		 * 아래와 같이 람다를 활용하면 익명 내부 클래스를 사용하는 것보다 명령문을 간소화 시키는 것이 가능하다.
-		 * (+ 즉, 람다 내부에 작성 된 명령문과 매개 변수를 Java 컴파일러가 분석해서 메서드 유형을
-		 * 유추한다는 것을 알 수 있다.)
+		 * 아래와 같이 람다를 활용하면 익명 내부 클래스를 사용하는 것보다 명령문을 간소화 시키는 것이
+		 * 가능하다. (+ 즉, 람다 내부에 작성 된 명령문과 매개 변수를 Java 컴파일러가 분석해서
+		 * 메서드 유형을 유추한다는 것을 알 수 있다.)
 		 */
-		sortValues(oListValues, (a_nLhs, a_nRhs) -> {
-			return a_nRhs - a_nLhs;
-		});
-		
-		System.out.println("\n=====> 리스트 - 내름 차순 정렬 후 <=====");
-		printValues(oListValues);
 	}
 	
-	/**
-	 * 출력 인터페이스
-	 */
-	private interface IWriter {
-		/** 값을 출력한다 */
-		public void writeVal();
-	}
-	
-	/** 람다를 반환한다 */
-	private static IWriter getLambda(int a_nVal) {
-		return () -> {
 			/*
 			 * 람다 내부에서는 외부 지역에 존재하는 지역 변수를 해당 변수의 생명 주기와 상관 없이
 			 * 접근하는 것이 가능하다.
 			 *
 			 * 람다는 구현 된 지역의 일부이기 때문에 해당 지역에 선언 된 지역 변수를 람다 내부에서
 			 * 접근하기 위해 해당 변수에 대한 사본을 지니고 있기 때문이다. (+ 즉, 외부 지역에 선언 된
-			 * 지역 변수가 메모리 상에서 제거 되어도 람다 내부에서는 해당 변수에 자유롭게 접근 가능하다는 것을
-			 * 알 수 있다.)
+			 * 지역 변수가 메모리 상에서 제거 되어도 람다 내부에서는 해당 변수에 자유롭게
+			 * 접근 가능하다는 것을 알 수 있다.)
 			 */
-			System.out.printf("람다 : %d\n", a_nVal);
-		};
-	}
-	
-	/** 값을 정렬한다 */
-	private static void sortValues(ArrayList<Integer> a_oListValues, ICompare a_oCompare) {
-		for(int i = 0; i < a_oListValues.size(); ++i) {
-			for(int j = 0; j < a_oListValues.size() - (i + 1); ++j) {
-				int nLhs = a_oListValues.get(j);
-				int nRhs = a_oListValues.get(j + 1);
-				
-				// 정렬이 필요 없을 경우
-				if(a_oCompare.compare(nLhs, nRhs) <= 0) {
-					continue;
-				}
-				
-				a_oListValues.set(j, nRhs);
-				a_oListValues.set(j + 1, nLhs);
-			}
-		}
-	}
-	
-	/** 값을 출력한다 */
-	private static void printValues(ArrayList<Integer> a_oListValues) {
-		for(int i = 0; i < a_oListValues.size(); ++i) {
-			System.out.printf("%d, ", a_oListValues.get(i));
-		}
-		
-		System.out.println();
-	}
 }

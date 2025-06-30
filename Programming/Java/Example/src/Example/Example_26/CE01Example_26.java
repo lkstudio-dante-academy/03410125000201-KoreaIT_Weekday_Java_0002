@@ -63,6 +63,7 @@ package Example.Example_26;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -71,97 +72,14 @@ import java.util.Random;
 public class CE01Example_26 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		Random oRandom = new Random();
-		
-		ArrayList<Integer> oListValuesA = new ArrayList<Integer>();
-		ArrayList<Float> oListValuesB = new ArrayList<Float>();
-		
-		for(int i = 0; i < 10; ++i) {
-			oListValuesA.add(oRandom.nextInt(1, 100));
-			oListValuesB.add(oRandom.nextFloat(1.0f, 100.0f));
-		}
-		
-		System.out.println("=====> 리스트 - 정렬 전 <=====");
-		
-		printValues(oListValuesA);
-		CE01Example_26.<Float>printValues(oListValuesB);
-		
-		sortValues(oListValuesA, 0, oListValuesA.size() - 1);
-		CE01Example_26.<Float>sortValues(oListValuesB, 0, oListValuesB.size() - 1);
-		
-		System.out.println("\n=====> 리스트 - 정렬 후 <=====");
-		
-		printValues(oListValuesA);
-		CE01Example_26.<Float>printValues(oListValuesB);
+		/*
+		 * 아래와 같이 제네릭 형식 인자의 자료형을 직접 명시하는 것이 가능하다. (+ 즉,
+		 * 제네릭 형식 인자의 자료형을 직접 명시함으로서 가독성을 향상 시키는 것이 가능하다.)
+		 */
 	}
 	
 	/*
 	 * 아래와 같이 extends 키워드를 통해 제네릭 형식 인자의 자료형을 특정 클래스 or 인터페이스를
 	 * 따르는 자료형으로 제한하는 것이 가능하다.
 	 */
-	
-	/** 값을 정렬한다 */
-	private static <T extends Comparable<T>> void sortValues(ArrayList<T> a_oListValuesA, int a_nLeft, int a_nRight) {
-		// 값 정렬이 불가능 할 경우
-		if(a_nLeft >= a_nRight) {
-			return;
-		}
-		
-		int nMiddle = (a_nLeft + a_nRight) / 2;
-		
-		sortValues(a_oListValuesA, a_nLeft, nMiddle);
-		sortValues(a_oListValuesA, nMiddle + 1, a_nRight);
-		
-		int nLeft = a_nLeft;
-		int nRight = nMiddle + 1;
-		
-		ArrayList<T> oListValuesA_Temp = new ArrayList<T>();
-		
-		while(true) {
-			while(nLeft <= nMiddle) {
-				// 정렬이 불가능 할 경우
-				if(a_oListValuesA.get(nLeft).compareTo(a_oListValuesA.get(nRight)) > 0) {
-					break;
-				}
-				
-				oListValuesA_Temp.add(a_oListValuesA.get(nLeft++));
-			}
-			
-			while(nRight <= a_nRight) {
-				// 정렬이 불가능 할 경우
-				if(a_oListValuesA.get(nRight).compareTo(a_oListValuesA.get(nLeft)) > 0) {
-					break;
-				}
-				
-				oListValuesA_Temp.add(a_oListValuesA.get(nRight++));
-			}
-			
-			// 정렬이 불가능 할 경우
-			if(nLeft > nMiddle || nRight > a_nRight) {
-				break;
-			}
-		}
-		
-		while(nLeft <= nMiddle) {
-			oListValuesA_Temp.add(a_oListValuesA.get(nLeft++));
-		}
-		
-		while(nRight <= a_nRight) {
-			oListValuesA_Temp.add(a_oListValuesA.get(nRight++));
-		}
-		
-		for(int i = 0; i < oListValuesA_Temp.size(); ++i) {
-			T tVal = oListValuesA_Temp.get(i);
-			a_oListValuesA.set(a_nLeft + i, tVal);
-		}
-	}
-	
-	/** 값을 출력한다 */
-	private static <T> void printValues(ArrayList<T> a_oListValuesA) {
-		for(int i = 0; i < a_oListValuesA.size(); ++i) {
-			System.out.printf("%s, ", a_oListValuesA.get(i));
-		}
-		
-		System.out.println();
-	}
 }
