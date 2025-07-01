@@ -72,14 +72,67 @@ import java.util.Random;
 public class CE01Example_26 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		Random oRandom = new Random();
+		
+		List<Integer> oListValuesA = new ArrayList<>();
+		List<Float> oListValuesB = new ArrayList<>();
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 100);
+			float fVal = oRandom.nextFloat(1.0f, 100.0f);
+			
+			oListValuesA.add(nVal);
+			oListValuesB.add(fVal);
+		}
+		
+		System.out.println("=====> 리스트 <=====");
+		printValues(oListValuesA);
+		printValues(oListValuesB);
+		
 		/*
 		 * 아래와 같이 제네릭 형식 인자의 자료형을 직접 명시하는 것이 가능하다. (+ 즉,
 		 * 제네릭 형식 인자의 자료형을 직접 명시함으로서 가독성을 향상 시키는 것이 가능하다.)
 		 */
+		CE01Example_26.<Integer>sortValues(oListValuesA);
+		CE01Example_26.<Float>sortValues(oListValuesB);
+		
+		System.out.println("\n=====> 리스트 - 정렬 후 <=====");
+		printValues(oListValuesA);
+		printValues(oListValuesB);
 	}
 	
 	/*
 	 * 아래와 같이 extends 키워드를 통해 제네릭 형식 인자의 자료형을 특정 클래스 or 인터페이스를
 	 * 따르는 자료형으로 제한하는 것이 가능하다.
 	 */
+	
+	/** 값을 정렬한다 */
+	private static <T extends Comparable<T>> void sortValues(List<T> a_oListValues) {
+		for(int i = 1; i < a_oListValues.size(); ++i) {
+			int j = 0;
+			T tVal_Compare = a_oListValues.get(i);
+			
+			for(j = i - 1; j >= 0; --j) {
+				T tVal = a_oListValues.get(j);
+				
+				// 정렬이 필요 없을 경우
+				if(tVal.compareTo(tVal_Compare) <= 0) {
+					break;
+				}
+				
+				a_oListValues.set(j + 1, tVal);
+			}
+			
+			a_oListValues.set(j + 1, tVal_Compare);
+		}
+	}
+	
+	/** 값을 출력한다 */
+	private static <T> void printValues(List<T> a_oListValues) {
+		for(int i = 0; i < a_oListValues.size(); ++i) {
+			System.out.printf("%s, ", a_oListValues.get(i));
+		}
+		
+		System.out.println();
+	}
 }

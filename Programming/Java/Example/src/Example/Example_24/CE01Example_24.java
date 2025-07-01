@@ -133,12 +133,26 @@ public class CE01Example_24 {
 		 * 아래와 같이 지역 내부 클래스는 특정 지역에 정의 되어 있기 때문에 해당 클래스를 통해 생성 된 객체를
 		 * 직접적으로 참조가 불가능하며 부모 클래스나 인터페이스를 통해 간접적으로 참조가 가능하다.
 		 */
+		INested oInner_LocalA = oOuterA.getInner_Local();
+		INested oInner_LocalB = oOuterA.getInner_Local();
+		INested oInner_LocalC = oOuterB.getInner_Local();
+		
+		oInner_LocalA.incrVal(30);
+		oInner_LocalB.incrVal(40);
+		oInner_LocalC.incrVal(50);
 		
 		/*
 		 * 아래와 같이 익명 내부 클래스 또한 지역 내부 클래스와 마찬가지로 해당 클래스로 생성 된 객체를
 		 * 직접적으로 참조하는 것이 불가능하다. (+ 즉, 클래스 이름이 존재하지 않기 때문에 직접적인 참조가
 		 * 불가능하다는 것을 알 수 있다.)
 		 */
+		INested oInner_AnonymousA = oOuterA.getInner_Anonymous();
+		INested oInner_AnonymousB = oOuterA.getInner_Anonymous();
+		INested oInner_AnonymousC = oOuterB.getInner_Anonymous();
+		
+		oInner_AnonymousA.incrVal(30);
+		oInner_AnonymousB.incrVal(40);
+		oInner_AnonymousC.incrVal(50);
 		
 		System.out.println("=====> 외부 클래스 - A <=====");
 		oOuterA.showInfo();
@@ -154,5 +168,23 @@ public class CE01Example_24 {
 		
 		System.out.println("\n=====> 멤버 내부 클래스 - C <=====");
 		oInner_MemberC.showInfo();
+		
+		System.out.println("\n=====> 지역 내부 클래스 - A <=====");
+		oInner_LocalA.showInfo();
+		
+		System.out.println("\n=====> 지역 내부 클래스 - B <=====");
+		oInner_LocalB.showInfo();
+		
+		System.out.println("\n=====> 지역 내부 클래스 - C <=====");
+		oInner_LocalC.showInfo();
+		
+		System.out.println("\n=====> 익명 내부 클래스 - A <=====");
+		oInner_AnonymousA.showInfo();
+		
+		System.out.println("\n=====> 익명 내부 클래스 - B <=====");
+		oInner_AnonymousB.showInfo();
+		
+		System.out.println("\n=====> 익명 내부 클래스 - C <=====");
+		oInner_AnonymousC.showInfo();
 	}
 }

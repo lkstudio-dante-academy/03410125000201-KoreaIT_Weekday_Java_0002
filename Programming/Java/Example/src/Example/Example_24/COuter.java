@@ -28,6 +28,53 @@ public class COuter {
 		}
 	}
 	
+	/** 지역 내부 클래스 객체를 반환한다 */
+	public INested getInner_Local() {
+		/**
+		 * 지역 내부 클래스
+		 */
+		class CInner_Local implements INested {
+			private int m_nVal = 0;
+			
+			/** 값을 증가 시킨다 */
+			@Override
+			public void incrVal(int a_nVal) {
+				m_nVal += a_nVal;
+				COuter.this.m_nVal += a_nVal;
+			}
+			
+			/** 정보를 출력한다 */
+			@Override
+			public void showInfo() {
+				System.out.printf("멤버 변수 (내부) : %d\n", m_nVal);
+				System.out.printf("멤버 변수 (외부) : %d\n", COuter.this.m_nVal);
+			}
+		}
+		
+		return new CInner_Local();
+	}
+	
+	/** 익명 내부 클래스 객체를 반환한다 */
+	public INested getInner_Anonymous() {
+		return new INested() {
+			private int m_nVal = 0;
+			
+			/** 값을 증가 시킨다 */
+			@Override
+			public void incrVal(int a_nVal) {
+				m_nVal += a_nVal;
+				COuter.this.m_nVal += a_nVal;
+			}
+			
+			/** 정보를 출력한다 */
+			@Override
+			public void showInfo() {
+				System.out.printf("멤버 변수 (내부) : %d\n", m_nVal);
+				System.out.printf("멤버 변수 (외부) : %d\n", COuter.this.m_nVal);
+			}
+		};
+	}
+	
 	private int m_nVal = 0;
 	
 	/** 값을 증가 시킨다 */

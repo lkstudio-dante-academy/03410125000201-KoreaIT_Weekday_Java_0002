@@ -53,19 +53,81 @@ import java.util.Random;
 public class CE01Example_25 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		IPrinter oLambdaA = getLambda(10);
+		IPrinter oLambdaB = getLambda(20);
+		
+		System.out.println("=====> 람다 <=====");
+		oLambdaA.printVal();
+		oLambdaB.printVal();
+		
+		Random oRandom = new Random();
+		List<Integer> oListValues = new ArrayList<>();
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 100);
+			oListValues.add(nVal);
+		}
+		
+		System.out.println("\n=====> 리스트 <=====");
+		printValues(oListValues);
+		
 		/*
 		 * 아래와 같이 익명 내부 클래스를 활용하면 일회성 객체를 생성하는 것이 가능하다. (+ 즉,
 		 * 익명 내부 클래스는 일반적으로 재사용 되지 않는 임시 객체를 생성 할 때 주로 활용 된다는 것을
 		 * 알 수 있다.)
 		 */
+		sortValues(oListValues, new ICompare() {
+			/** 값을 비교한다 */
+			@Override
+			public int compare(int a_nLhs, int a_nRhs) {
+				return a_nLhs - a_nRhs;
+			}
+		});
 		
-		/*
-		 * 아래와 같이 람다를 활용하면 익명 내부 클래스를 사용하는 것보다 명령문을 간소화 시키는 것이
-		 * 가능하다. (+ 즉, 람다 내부에 작성 된 명령문과 매개 변수를 Java 컴파일러가 분석해서
-		 * 메서드 유형을 유추한다는 것을 알 수 있다.)
-		 */
+		sortValues(oListValues, (a_nLhs, a_nRhs) -> {
+			return a_nRhs - a_nLhs;
+		});
+		
+		System.out.println("\n=====> 리스트 - 내림 차순 정렬 후 <=====");
+		printValues(oListValues);
 	}
 	
+	/** 값을 정렬한다 */
+	private static void sortValues(List<Integer> a_oListValues,
+								   ICompare a_oCompare) {
+		for(int i = 0; i < a_oListValues.size(); ++i) {
+			int nIdx_Compare = i;
+			
+			for(int j = i; j < a_oListValues.size(); ++j) {
+				int nVal = a_oListValues.get(j);
+				int nVal_Compare = a_oListValues.get(nIdx_Compare);
+				
+				// 정렬이 필요 없을 경우
+				if(a_oCompare.compare(nVal_Compare, nVal) <= 0) {
+					continue;
+				}
+				
+				nIdx_Compare = j;
+			}
+			
+			int nTemp = a_oListValues.get(i);
+			a_oListValues.set(i, a_oListValues.get(nIdx_Compare));
+			a_oListValues.set(nIdx_Compare, nTemp);
+		}
+	}
+	
+	/** 값을 출력한다 */
+	private static void printValues(List<Integer> a_oListValues) {
+		for(int i = 0; i < a_oListValues.size(); ++i) {
+			System.out.printf("%d, ", a_oListValues.get(i));
+		}
+		
+		System.out.println();
+	}
+	
+	/** 람다를 반환한다 */
+	private static IPrinter getLambda(int a_nVal) {
+		return () -> {
 			/*
 			 * 람다 내부에서는 외부 지역에 존재하는 지역 변수를 해당 변수의 생명 주기와 상관 없이
 			 * 접근하는 것이 가능하다.
@@ -75,4 +137,7 @@ public class CE01Example_25 {
 			 * 지역 변수가 메모리 상에서 제거 되어도 람다 내부에서는 해당 변수에 자유롭게
 			 * 접근 가능하다는 것을 알 수 있다.)
 			 */
+			System.out.printf("지역 변수 (외부) : %d\n", a_nVal);
+		};
+	}
 }
