@@ -56,7 +56,9 @@ package Example.Example_29;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Example 29 (컬렉션 - 2)
@@ -64,11 +66,37 @@ import java.util.Random;
 public class CE01Example_29 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		Random oRandom = new Random();
+		Set<Integer> oSetValues = new HashSet<>();
+		
+		System.out.println("=====> 데이터 입력 순서 <=====");
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 10);
+			System.out.printf("%d, ", nVal);
+			
+			oSetValues.add(nVal);
+		}
+		
+		System.out.println("\n\n=====> 셋 <=====");
+		
 		/*
 		 * 셋은 중복적인 데이터를 필터링하기 위한 용도로 활용되기 때문에 셋에 존재하는 데이터를
 		 * 직접적으로 가져오기 위한 인터페이스가 존재하지 않는다. (+ 즉, 인덱스 연산자 등을
 		 * 지원하지 않는다는 것을 알 수 있다.)
 		 */
+		for(int nVal : oSetValues) {
+			System.out.printf("%d, ", nVal);
+		}
+		
+		Map<String, Integer> oMapValues = new HashMap<>();
+		
+		for(int i = 0; i < 10; ++i) {
+			String oKey = String.format("Key_%02d", i + 1);
+			oMapValues.put(oKey, i + 1);
+		}
+		
+		System.out.println("\n\n=====> 맵 <=====");
 		
 		/*
 		 * 맵은 키/벨류 쌍으로 데이터를 관리하기 때문에 맵 컬렉션을 직접적으로 foreach 반복문에
@@ -77,5 +105,11 @@ public class CE01Example_29 {
 		 * 따라서 맵은 keySet 과 같은 메서드가 존재하며 해당 메서드를 활용하면 반복 가능한 데이터를 통해
 		 * 맵에 존재하는 모든 데이터를 순회하는 것이 가능하다.
 		 */
+		for(String oKey : oMapValues.keySet()) {
+			int nVal = oMapValues.get(oKey);
+			System.out.printf("%s:%d, ", oKey, nVal);
+		}
+		
+		System.out.println();
 	}
 }

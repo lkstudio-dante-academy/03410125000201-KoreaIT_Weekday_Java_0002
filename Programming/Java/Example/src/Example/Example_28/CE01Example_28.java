@@ -83,20 +83,70 @@ import java.util.Stack;
 public class CE01Example_28 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		Random oRandom = new Random();
+		
+		List<Integer> oListValuesA = new ArrayList<>();
+		List<Integer> oListValuesB = new LinkedList<>();
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 100);
+			
+			oListValuesA.add(nVal);
+			oListValuesB.add(nVal);
+		}
+		
+		System.out.println("=====> 리스트 <=====");
+		printValues(oListValuesA);
+		printValues(oListValuesB);
+		
 		/*
 		 * 스택은 다른 컬렉션과 달리 인터페이스를 기준으로 구현 된 컬렉션이 아니라는 것을 알 수 있다. (+ 즉, 스택은
 		 * Java 이전 버전과 호환성을 위해서 존재하는 컬렉션이라는 것을 알 수 있다.)
 		 */
+		Stack<Integer> oStackValues = new Stack<>();
+		Queue<Integer> oQueueValues = new LinkedList<>();
 		
+		System.out.println("\n=====> 데이터 입력 순서 <=====");
+		
+		for(int i = 0; i < 10; ++i) {
+			System.out.printf("%d, ", i + 1);
+			
+			oStackValues.push(i + 1);
+			oQueueValues.add(i + 1);
+		}
+		
+		System.out.println("\n\n=====> 스택 <=====");
+		
+		while(!oStackValues.empty()) {
 			/*
 			 * 스택은 다른 컬렉션과 달리 특정 데이터를 가져오면 해당 데이터는 스택에서 제거 되는 특징이
 			 * 존재한다. (+ 즉, 스택은 데이터를 제거함으로서 데이터의 접근 순서를 엄격하게 제한 한다는 것을
 			 * 알 수 있다.)
 			 */
+			int nVal = oStackValues.pop();
+			System.out.printf("%d, ", nVal);
+		}
 		
+		System.out.println("\n\n=====> 큐 <=====");
+		
+		while(!oQueueValues.isEmpty()) {
 			/*
 			 * 큐도 스택과 마찬가지로 특정 데이터를 가져오면 해당 데이터는 큐에서 제거 되는 특징이 존재한다.
 			 * (+ 즉, 큐 인터페이스를 구현하는 모든 컬렉션이 동일한 특징을 지니고 있다는 것을 의미한다.)
 			 */
+			int nVal = oQueueValues.poll();
+			System.out.printf("%d, ", nVal);
+		}
+		
+		System.out.println();
+	}
+	
+	/** 값을 출력한다 */
+	private static void printValues(List<Integer> a_oListValues) {
+		for(int i = 0; i < a_oListValues.size(); ++i) {
+			System.out.printf("%d, ", a_oListValues.get(i));
+		}
+		
+		System.out.println();
 	}
 }
