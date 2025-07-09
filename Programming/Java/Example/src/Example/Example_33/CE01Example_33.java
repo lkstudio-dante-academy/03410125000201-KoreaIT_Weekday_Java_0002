@@ -54,7 +54,7 @@ public class CE01Example_33 {
 		 * - DB 를 제어하는 역할을 수행하는 클래스를 의미한다. (+ 즉, Connection 클래스를 활용하면
 		 * DB 에 SQL 구문을 실행하는 등의 작업을 처리하는 것이 가능하다.)
 		 */
-		try(Connection oConnection = DriverManager.getConnection("jdbc:sqlite:P_E01Example_19_01.db")) {
+		try(Connection oConnection = DriverManager.getConnection("jdbc:sqlite:P_E01Example_33_01.db")) {
 			String oSQL_CreateTable = "CREATE TABLE IF NOT EXISTS MemberTable(Name TEXT PRIMARY KEY, PNumber TEXT)";
 			
 			/*
@@ -86,25 +86,21 @@ public class CE01Example_33 {
 			 * - 미리 컴파일 된 SQL 구문을 실행하고 실행에 대한 결과를 제어하는 역할을 수행하는 클래스를
 			 * 의미한다. (+ 즉, PreparedStatement 클래스를 활용하면 Statement 클래스보다 좀 더 빠르게
 			 * SQL 구문을 처리하는 것이 가능하다.)
+			 *
+			 * 또한 PreparedStatement 클래스는 ? 구문으로 데이터를 바인딩하는 SQL 구문을 처리하는 것이
+			 * 가능하다. (+ 즉, PreparedStatement 클래스는 데이터와 SQL 구문을 동적으로 바인딩하는 기능을
+			 * 제공한다는 것을 알 수 있다.)
 			 */
 			try(PreparedStatement oStatement = oConnection.prepareStatement(oSQL_InsertMember)) {
 				oStatement.setString(1, "회원 A");
 				oStatement.setString(2, "1234");
 				
-				/*
-				 * executeUpdate 메서드란?
-				 * - execute 메서드와 같이 SQL 구문을 실행하는 역할을 수행하는 메서드를 의미한다.
-				 *
-				 * 단, executeUpdate 메서드는 execute 메서드와 달리 ? 구문으로 데이터를 바인딩하는
-				 * SQL 구문을 처리하는 것이 가능하다. (+ 즉, executeUpdate 메서드는 데이터와 SQL 구문을
-				 * 동적으로 바인딩하는 기능을 제공한다는 것을 알 수 있다.)
-				 */
-				oStatement.executeUpdate();
+				oStatement.execute();
 				
 				oStatement.setString(1, "회원 B");
 				oStatement.setString(2, "1234");
 				
-				oStatement.executeUpdate();
+				oStatement.execute();
 			}
 			
 			String oSQL_Query = "SELECT * FROM MemberTable";

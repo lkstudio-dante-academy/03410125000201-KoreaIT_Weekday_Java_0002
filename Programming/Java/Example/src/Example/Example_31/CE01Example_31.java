@@ -74,6 +74,8 @@ public class CE01Example_31 {
 		 * 쓰레드 진입 메서드는 메인 메서드와 마찬가지로 해당 메서드가 종료 되면 쓰레드도 종료 되는 특징이
 		 * 존재한다. (+ 즉, 메인 메서드가 종료 되면 메인 쓰레드가 종료 된다는 것을 알 수 있다.)
 		 */
+		Thread oThreadA = new Thread(CE01Example_31::main_ThreadA);
+		Thread oThreadB = new Thread(CE01Example_31::main_ThreadB);
 		
 		/*
 		 * start 메서드는 쓰레드를 실행 상태로 만드는 역할을 수행한다.
@@ -82,7 +84,10 @@ public class CE01Example_31 {
 		 * start 메서드를 호출해야 실행 상태가 되어서 동작하는 특징이 존재한다. (+ 즉,
 		 * start 메서드를 호출하지 않으면 쓰레드는 실행 되지 않는다는 것을 의미한다.)
 		 */
+		oThreadA.start();
+		oThreadB.start();
 		
+		try {
 			/*
 			 * join 메서드는 쓰레드의 종료를 대기하는 역할을 수행한다. (+ 즉, join 메서드를 활용하면
 			 * 특정 쓰레드의 작업 완료를 대기하는 것이 가능하다.)
@@ -92,5 +97,30 @@ public class CE01Example_31 {
 			 * join 메서드를 통해 특정 쓰레드의 종료를 대기 함으로서 해당 쓰레드의 작업 완료 여부를
 			 * 대기하는 것이 가능하다.)
 			 */
+			oThreadA.join();
+			oThreadB.join();
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
+		
+		System.out.printf("\n카운트 : %d\n", m_oCounter.getCount());
+	}
+	
+	private static CCounter m_oCounter = new CCounter();
+	
+	/** 쓰레드 A 진입 메서드 */
+	private static void main_ThreadA() {
+		for(int i = 0; i < 1000000; ++i) {
+			m_oCounter.incrCount(1);
+			System.out.println("쓰레드 A 호출!");
+		}
+	}
+	
+	/** 쓰레드 B 진입 메서드 */
+	private static void main_ThreadB() {
+		for(int i = 0; i < 1000000; ++i) {
+			m_oCounter.incrCount(1);
+			System.out.println("쓰레드 B 호출!");
+		}
 	}
 }
