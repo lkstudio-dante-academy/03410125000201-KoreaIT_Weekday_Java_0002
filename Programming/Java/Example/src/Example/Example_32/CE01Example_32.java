@@ -89,7 +89,7 @@ public class CE01Example_32 {
 				ByteBuffer oBuffer = ByteBuffer.allocate(Integer.BYTES);
 				oBuffer.putInt(i + 1);
 				
-				oWriterA.write("Hello, World!");
+				oWriterA.write("Hello, World!\n");
 				oWriterB.write(oBuffer.array(), 0, oBuffer.array().length);
 			}
 			

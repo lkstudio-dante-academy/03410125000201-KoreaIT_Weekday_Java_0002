@@ -106,6 +106,7 @@ public class CE01Example_31 {
 		System.out.printf("\n카운트 : %d\n", m_oCounter.getCount());
 	}
 	
+	private static Object m_oLock = new Object();
 	private static CCounter m_oCounter = new CCounter();
 	
 	/** 쓰레드 A 진입 메서드 */
@@ -119,7 +120,10 @@ public class CE01Example_31 {
 	/** 쓰레드 B 진입 메서드 */
 	private static void main_ThreadB() {
 		for(int i = 0; i < 1000000; ++i) {
-			m_oCounter.incrCount(1);
+			synchronized(m_oLock) {
+				m_oCounter.incrCount(1);
+			}
+			
 			System.out.println("쓰레드 B 호출!");
 		}
 	}
